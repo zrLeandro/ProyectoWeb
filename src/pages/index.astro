@@ -11,189 +11,175 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
         <style>
             :root {
-                --accent: #F5F5DC;
-                --bg-dark: #13151a;
+                --accent: #e0e0d1;
+                --bg-light: #f8f9fa;
+                --glass: rgba(255, 255, 255, 0.4);
+                --orb-color: radial-gradient(circle at 30% 30%, #fff, #f5f5dc, #d4d4b1);
             }
 
-            .parallax-wrapper {
+            body {
+                background-color: var(--bg-light);
+                color: #2d2d2d;
+                overflow-x: hidden;
+                /* Fondo con gradiente de malla suave típico de 2026 */
+                background-image: 
+                    radial-gradient(at 0% 0%, hsla(60,15%,90%,1) 0, transparent 50%), 
+                    radial-gradient(at 100% 100%, hsla(200,10%,95%,1) 0, transparent 50%);
+            }
+
+            .hero-container {
                 position: relative;
-                height: 80vh; /* Un poco más alto para impacto visual */
+                height: 100vh;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                overflow: hidden;
-                background: var(--bg-dark);
-                color: white;
                 text-align: center;
-                padding: 20px;
-            }
-
-            .parallax-bg {
-                position: absolute;
-                top: -10%;
-                left: 0;
-                width: 100%;
-                height: 120%;
-                background-image: linear-gradient(to bottom, rgba(19, 21, 26, 0.2), var(--bg-dark)), 
-                                  url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&q=80&w=2070');
-                background-size: cover;
-                background-position: center;
-                z-index: 1;
-                opacity: 0.5;
-                will-change: transform;
-            }
-
-            .content-hero {
-                position: relative;
-                z-index: 2;
-                max-width: 90%;
+                z-index: 10;
             }
 
             h1 {
-                /* CLAVE: Tamaño de fuente fluido */
-                font-size: clamp(2.5rem, 8vw, 5rem); 
-                line-height: 1.1;
-                margin-bottom: 0.5rem;
-                background: linear-gradient(45deg, var(--accent), #fff, var(--accent));
-                background-size: 200% auto;
+                font-size: clamp(3rem, 12vw, 7rem);
+                font-weight: 800;
+                letter-spacing: -0.04em;
+                margin: 0;
+                background: linear-gradient(180deg, #1a1a1a 30%, #666);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                animation: shine 5s linear infinite;
-            }
-
-            @keyframes shine {
-                to { background-position: 200% center; }
+                filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
             }
 
             .hero-subtitle {
-                font-size: clamp(1rem, 4vw, 1.5rem);
-                color: #aaa;
+                font-size: clamp(1rem, 3vw, 1.2rem);
+                text-transform: uppercase;
+                letter-spacing: 0.3em;
+                color: #888;
+                margin-top: 1rem;
             }
 
-            /* Sección de tarjetas responsiva */
-            .floating-section {
-                background: var(--bg-dark);
-                padding: 40px 20px;
-                display: grid;
-                /* Una columna en móvil, tres en escritorio */
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                max-width: 1100px;
-                margin: 0 auto;
-                gap: 25px;
-            }
-
-            .card {
-                background: rgba(255, 255, 255, 0.03);
-                border: 1px solid rgba(245, 245, 220, 0.1);
-                padding: 2.5rem 1.5rem;
-                border-radius: 20px;
-                backdrop-filter: blur(12px);
-                transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                position: relative;
-                overflow: hidden;
-            }
-
-            /* Efecto WOW: Luces ambientales tras las tarjetas */
-            .card::before {
-                content: '';
+            /* --- LA ESFERA DINÁMICA --- */
+            .orb-wrapper {
                 position: absolute;
-                top: -50%; left: -50%;
-                width: 200%; height: 200%;
-                background: radial-gradient(circle, rgba(245,245,220,0.05) 0%, transparent 70%);
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
                 pointer-events: none;
             }
 
-            .card:hover {
-                transform: translateY(-10px);
-                border-color: var(--accent);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            .light-orb {
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+                background: var(--orb-color);
+                box-shadow: 
+                    0 0 80px rgba(245, 245, 220, 0.4),
+                    inset -20px -20px 50px rgba(0,0,0,0.1);
+                filter: blur(2px);
+                transition: transform 0.1s ease-out, filter 0.3s ease;
+                will-change: transform, filter, box-shadow;
             }
 
-            .card h3 {
-                color: var(--accent);
-                font-size: 1.5rem;
-                margin-bottom: 1rem;
+            /* --- SECCIÓN DE TARJETAS FLUIDAS --- */
+            .floating-section {
+                padding: 100px 20px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                max-width: 1200px;
+                margin: 0 auto;
+                gap: 40px;
+            }
+
+            .card {
+                background: var(--glass);
+                backdrop-filter: blur(20px) saturate(180%);
+                -webkit-backdrop-filter: blur(20px) saturate(180%);
+                border: 1px solid rgba(255, 255, 255, 0.7);
+                padding: 3rem 2rem;
+                border-radius: 40px; /* Bordes mucho más redondeados para 2026 */
+                transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            .card:hover {
+                transform: translateY(-15px) scale(1.02);
+                background: rgba(255, 255, 255, 0.6);
+                box-shadow: 0 30px 60px rgba(0,0,0,0.05);
             }
 
             main {
                 max-width: 800px;
                 margin: 0 auto;
-                padding: 60px 24px;
-                color: #bbb;
-                line-height: 1.6;
+                padding: 100px 24px;
+                font-size: 1.2rem;
+                line-height: 1.8;
+                text-align: center;
             }
 
-            /* Ajustes para móvil */
             @media (max-width: 768px) {
-                .parallax-wrapper { height: 60vh; }
-                .floating-section { padding: 20px; gap: 15px; }
-                /* Desactivamos o suavizamos transformaciones pesadas en móvil */
-                .card:hover { transform: translateY(-5px); }
+                .light-orb { width: 200px; height: 200px; }
             }
         </style>
     </head>
     <body>
         <Header />
         
-        <section class="parallax-wrapper">
-            <div class="parallax-bg" id="bg-hero"></div>
-            <div class="content-hero" id="text-hero">
-                <h1>Leandro</h1>
-                <p class="hero-subtitle">Desarrollador & Creador de experiencias</p>
+        <section class="hero-container">
+            <div class="content-hero">
+                <h1 id="title">¡Hola! Soy Leandro</h1>
+                <p class="hero-subtitle">Bienvenidos a mi proyecto personal.</p>
+            </div>
+
+            <div class="orb-wrapper">
+                <div class="light-orb" id="dynamic-orb"></div>
             </div>
         </section>
 
         <section class="floating-section">
-            <div class="card" id="card-1">
-                <h3>🚀 Proyectos</h3>
-                <p>Explora mi portafolio de aplicaciones modernas y herramientas open source.</p>
+            <div class="card">
+                <h3>✨ Blablabla</h3>
+                <p>Blablablabla.</p>
             </div>
-            <div class="card" id="card-2">
-                <h3>🛠️ Mi Setup</h3>
-                <p>Desde mi editor de código hasta el hardware que impulsa mi día a día.</p>
+            <div class="card">
+                <h3>🌀 Blablabla</h3>
+                <p>Blablablabla.</p>
             </div>
-            <div class="card" id="card-3">
-                <h3>💡 Enlaces</h3>
-                <p>Una colección curada de recursos y lecturas que me inspiran.</p>
+            <div class="card">
+                <h3>🍃 Essence</h3>
+                <p>blablablabla.</p>
             </div>
         </section>
 
         <main>
-            <p>Bienvenido a mi rincón digital. Aquí comparto lo que aprendo mientras construyo cosas en la web.</p>
-            <div style="height: 100px;"></div>
+            <p>Página en construcción, poco a poco iré añadiendo todo para que esté mejor.</p>
+            <div style="height: 30vh;"></div>
         </main>
 
         <Footer />
 
         <script>
-            // Usamos requestAnimationFrame para que el parallax sea suave (60fps)
-            let ticking = false;
-
-            const updateParallax = () => {
-                const y = window.scrollY;
-                const bg = document.getElementById('bg-hero');
-                const tx = document.getElementById('text-hero');
-                
-                // Solo ejecutamos efectos complejos si no es un móvil muy pequeño
-                if (window.innerWidth > 768) {
-                    if (bg) bg.style.transform = `translate3d(0, ${y * 0.3}px, 0)`;
-                    if (tx) tx.style.transform = `translate3d(0, ${y * -0.15}px, 0)`;
-                    
-                    // Parallax sutil en tarjetas
-                    const cards = document.querySelectorAll('.card');
-                    cards.forEach((card, index) => {
-                        const speed = [0.05, 0.1, 0.07][index];
-                        const movement = (y * speed);
-                        (card as HTMLElement).style.transform = `translateY(${-movement}px)`;
-                    });
-                }
-                ticking = false;
-            };
-
+            const orb = document.getElementById('dynamic-orb');
+            const title = document.getElementById('title');
+            
             window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(updateParallax);
-                    ticking = true;
+                const scrolled = window.scrollY;
+                const val = scrolled * 0.5;
+                
+                if (orb) {
+                    // 1. Movemos la esfera a distinta velocidad (Parallax)
+                    // 2. Cambiamos la escala para dar profundidad
+                    // 3. Modificamos el filtro de desenfoque y rotación de color
+                    orb.style.transform = `translate3d(0, ${val * 0.8}px, 0) scale(${1 + scrolled * 0.001})`;
+                    
+                    // Efecto de luz: a medida que bajas, la esfera se vuelve más "difusa" o brillante
+                    orb.style.filter = `blur(${scrolled * 0.02}px) brightness(${1 + scrolled * 0.0005})`;
+                    
+                    // Cambio de iluminación interna (simula que la luz cambia de ángulo)
+                    orb.style.background = `radial-gradient(circle at ${30 + (scrolled/10)}% ${30 + (scrolled/20)}%, #fff, #f5f5dc, #d4d4b1)`;
+                }
+
+                if (title) {
+                    title.style.transform = `translate3d(0, ${scrolled * 0.2}px, 0)`;
+                    title.style.opacity = `${1 - scrolled / 600}`;
                 }
             });
         </script>
