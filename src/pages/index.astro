@@ -7,95 +7,138 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 <!doctype html>
 <html lang="es">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-        <style>
-            /* --- ESTILOS PARA EL EFECTO --- */
-            .parallax-wrapper {
-                position: relative;
-                height: 60vh; /* Altura de la sección */
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden; /* Para que no se salgan las capas */
-                background: #13151a; /* Un color oscuro profesional */
-                color: white;
-                text-align: center;
-            }
-
-            .parallax-bg {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 120%; /* Más alta para tener margen de movimiento */
-                background-image: url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&q=80&w=2070');
-                background-size: cover;
-                background-position: center;
-                z-index: 1;
-                opacity: 0.4;
-                transform: translateY(0);
-                will-change: transform;
-            }
-
-            .content {
-                position: relative;
-                z-index: 2; /* Por encima del fondo */
-                padding: 2rem;
-            }
-
-            h1 {
-    			font-size: 4rem;
-   				margin-bottom: 1rem;
-    			text-shadow: 2px 2px 10px rgba(0,0,0,0.3); /* Sombra suave para separar del fondo */
-    			color: #F5F5DC; /* <--- Color Crema/Beige */
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.parallax-wrapper {
+				position: relative;
+				height: 70vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+				background: #13151a;
+				color: white;
+				text-align: center;
 			}
 
-            main {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 3rem 1rem;
-            }
-        </style>
-    </head>
-    <body>
-        <Header />
-        
-        <section class="parallax-wrapper">
-            <div class="parallax-bg" id="bg"></div>
-            <div class="content" id="text">
-                <h1> ¡Hola! Soy Leandro</h1>
-                <p style="font-size: 1.5rem;">Bienvenidos a mi espacio personal.</p>
-            </div>
-        </section>
+			.parallax-bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 140%;
+				background-image: url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&q=80&w=2070');
+				background-size: cover;
+				background-position: center;
+				z-index: 1;
+				opacity: 0.4;
+				will-change: transform;
+			}
 
-        <main>
-            <p>
-                Por aquí dejaré constancia de todos los proyectos que llevo a cabo en mi día a día, así como
-                algunas cosillas interesantes que no quiero que se olviden, ya sean personalizaciones concretas o enlaces útiles.
-            </p>
-            <p>
-                Poco a poco iré añadiendo todo, ¡a disfrutar!
-            </p>
-            
-            <div style="height: 100vh;"></div>
-        </main>
+			.content-hero {
+				position: relative;
+				z-index: 2;
+			}
 
-        <Footer />
+			h1 {
+				font-size: 4rem;
+				color: #F5F5DC;
+				text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+			}
 
-        <script>
-            window.addEventListener('scroll', () => {
-                const scrollValue = window.scrollY;
-                const bg = document.getElementById('bg');
-                const text = document.getElementById('text');
+			/* Sección de tarjetas flotantes */
+			.floating-section {
+				background: #13151a;
+				padding: 80px 20px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 30px;
+				overflow: hidden;
+			}
 
-                // Movemos el fondo a un 50% de la velocidad del scroll
-                if(bg) bg.style.transform = `translateY(${scrollValue * 0.5}px)`;
-                
-                // Movemos el texto un poquito hacia arriba (efecto sutil)
-                if(text) text.style.transform = `translateY(${scrollValue * -0.1}px)`;
-            });
-        </script>
-    </body>
+			.card {
+				background: rgba(255, 255, 255, 0.05);
+				border: 1px solid rgba(245, 245, 220, 0.2);
+				padding: 2rem;
+				border-radius: 15px;
+				width: 280px;
+				backdrop-filter: blur(8px);
+				transition: transform 0.1s ease-out;
+				will-change: transform;
+			}
+
+			.card h3 {
+				color: #F5F5DC;
+				margin-top: 0;
+			}
+
+			main {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 60px 20px;
+				color: #ddd;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		
+		<section class="parallax-wrapper">
+			<div class="parallax-bg" id="bg-hero"></div>
+			<div class="content-hero" id="text-hero">
+				<h1>¡Hola! Soy Leandro</h1>
+				<p style="font-size: 1.5rem;">Bienvenidos a mi espacio personal.</p>
+			</div>
+		</section>
+
+		<section class="floating-section">
+			<div class="card" id="card-1">
+				<h3>🚀 Proyectos</h3>
+				<p>Listado de aplicaciones y herramientas desarrolladas por mí.</p>
+			</div>
+			<div class="card" id="card-2">
+				<h3>🛠️ Setup</h3>
+				<p>Mis herramientas de trabajo y personalizaciones favoritas.</p>
+			</div>
+			<div class="card" id="card-3">
+				<h3>💡 Enlaces</h3>
+				<p>Recursos interesantes que voy encontrando en la red.</p>
+			</div>
+		</section>
+
+		<main>
+			<p>Por aquí dejaré constancia de todos los proyectos que llevo a cabo...</p>
+			<div style="height: 300px;"></div>
+		</main>
+
+		<Footer />
+
+		<script>
+			// Función segura para el scroll
+			const updateParallax = () => {
+				const y = window.scrollY;
+				
+				const bg = document.getElementById('bg-hero');
+				const tx = document.getElementById('text-hero');
+				const c1 = document.getElementById('card-1');
+				const c2 = document.getElementById('card-2');
+				const c3 = document.getElementById('card-3');
+
+				if (bg) bg.style.transform = "translateY(" + (y * 0.4) + "px)";
+				if (tx) tx.style.transform = "translateY(" + (y * -0.1) + "px)";
+
+				// Efecto solo si las tarjetas están cerca
+				if (y > 100) {
+					const rel = y - 100;
+					if (c1) c1.style.transform = "translateY(" + (rel * -0.05) + "px) rotate(-1deg)";
+					if (c2) c2.style.transform = "translateY(" + (rel * -0.12) + "px) scale(1.05)";
+					if (c3) c3.style.transform = "translateY(" + (rel * -0.08) + "px) rotate(1deg)";
+				}
+			};
+
+			window.addEventListener('scroll', updateParallax);
+		</script>
+	</body>
 </html>
