@@ -1,7 +1,7 @@
 ---
-title: "Second post"
+title: "Compra un dominio y sácale partido"
 description: "Lorem ipsum dolor sit amet"
-pubDate: "Jul 15 2022"
+pubDate: "Mar 1 2026"
 heroImage: "/blog-placeholder-4.jpg"
 ---
 
