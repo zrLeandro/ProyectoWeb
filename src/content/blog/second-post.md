@@ -1,16 +1,53 @@
 ---
 title: "Compra un dominio y sácale partido"
-description: "Lorem ipsum dolor sit amet"
+description: "Descubre cómo unificar tu vida digital, centralizar tus servicios y profesionalizar tu correo bajo un único dominio personal."
 pubDate: "Mar 1 2026"
 heroImage: "/blog-placeholder-4.jpg"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+En este post te contaré todas las ventajas que tiene comprar un dominio propio y por qué creo que, a día de hoy, tiene más sentido que nunca empezar a implementarlo.
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+## El caos de la vida digital
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+Cada día "necesitamos" nuevos servicios. De media, una persona de entre 20 y 40 años interactúa con **30 servicios o aplicaciones diferentes al mes**. 
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+Yo personalmente utilizo una cantidad ingente de herramientas. Solo en almacenamiento, alterno entre Google Drive, iCloud, OneDrive y Mega. El problema no es solo la cantidad de servicios, sino la fragmentación: cuentas de la universidad, cuentas personales, cuentas de trabajo... 
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+Vivimos en la era de la información, pero, a mi parecer, en una **infomación diogenizada**. 
+
+### La solución: Tu dominio como centro de mando
+
+Unificar toda tu información básica bajo un dominio propio te aporta dos cosas fundamentales: **tranquilidad y seguridad**. Además, el proceso de configurarlo te obliga a aprender conceptos de informática que considero que serán básicos en un futuro cercano.
+
+Nada mejor que un ejemplo real para ver el sentido que tiene. Así es como tengo organizado mi ecosistema digital bajo el dominio `leandromazuecos.com`:
+
+---
+
+## Mi infraestructura personal
+
+Para que veas el potencial, así es como utilizo mis subdominios para tenerlo todo a un clic:
+
+* **`leandromazuecos.com`**: Mi página web principal. El objetivo es simple: tener un registro de las cosas que hago y una especie de diario personal.
+* **`cloud.leandromazuecos.com`**: Mi nube personal. Conecta directamente con mi instancia de **Nextcloud**, donde almaceno todos mis datos sin depender de terceros.
+* **`musica.leandromazuecos.com`**: Gestión musical. Desde aquí accedo a **Soulseek** para descargar música que luego escucho en mi **Plexamp**.
+* **`plex.leandromazuecos.com`**: El centro de mandos de mi servidor de streaming **Plex**.
+* **`router.leandromazuecos.com`**: Acceso remoto para controlar la configuración de mi router desde cualquier lugar.
+* **`amule.leandromazuecos.com`**: Gestión de descargas de películas que se indexan automáticamente en mi biblioteca.
+* **`servidor.leandromazuecos.com`**: Control total de mi servidor mediante **SSH** cuando estoy fuera de casa.
+
+---
+
+## El correo electrónico: Orden y privacidad
+
+Otra de las joyas de la corona de tener un dominio es el control total sobre tu **email**. Olvídate de usar siempre la misma dirección de Gmail para todo. Yo utilizo diferentes alias para mantener mi bandeja de entrada organizada y libre de spam:
+
+* **`hola@leandromazuecos.com`**: Mi correo personal principal. Es profesional, corto y fácil de recordar.
+* **`compras@leandromazuecos.com`**: El que uso exclusivamente para tiendas online y suscripciones a newsletters. 
+
+De esta forma, si una tienda empieza a enviarme demasiado spam, sé perfectamente de dónde viene y puedo filtrarlo o gestionarlo sin que afecte a mis correos personales importantes.
+
+---
+
+> **Reflexión final:** Tener un dominio no es solo "tener una web". Es poseer la llave de tu propia infraestructura, dejar de depender de enlaces genéricos y profesionalizar tu presencia digital.
+
+¿Te animas a montar el tuyo? Si tienes dudas sobre qué registrador usar o cómo configurar los primeros registros DNS, ¡no dudes en contactar conmigo!
